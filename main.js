@@ -1,17 +1,33 @@
 // electron space
 const {app, BrowserWindow} = require('electron')
 
+let mainWindow = null;
+
 app.on('ready', () => {
-  normal(); //executes promise
-  let mainWin = new BrowserWindow({ width: 1000, height: 600 })
+  //normal(); //executes promise
+  console.log('app is ready')
+
+  mainWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+    minWidth: 400,
+    minHeight: 300,
+    show: false,
+    titleBarStyle: 'hidden-inset'
+  })
   //mainWin.loadURL(`file://${__dirname}/index.html`)
-  mainWin.loadURL(`http://localhost:9000`)
+  mainWindow.loadURL(`http://localhost:9000`)
+  //mainWindow.loadURL(`http://nodejs.org/`)
 
   // mainWindow.on('closed', function() {
   //   mainWindow = null;
   // });
+  mainWindow.once('ready-to-show', () => {
+    mainWindow.show()
+  })
 
 })
+
 
 
 let quitWhenDone = new Promise(

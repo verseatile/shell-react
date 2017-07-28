@@ -2,7 +2,9 @@
 //import Vue or React
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './components/App.jsx'
+import App from './components/App'
+import './styles/main.css'
+
 
 console.log('its webpack bruh')
 
